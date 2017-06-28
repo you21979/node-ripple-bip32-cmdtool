@@ -5,6 +5,7 @@
   "main": "index.js",
   "dependencies": {
     "bip39": "",
+    "ripple-sign-keypairs": "",
     "ripple-bip32": ""
   },
   "scripts": {
