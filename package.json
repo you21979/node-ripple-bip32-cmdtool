@@ -1,0 +1,23 @@
+{
+  "name": "ripple-bip32-cmdtool",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "bip39": "",
+    "ripple-bip32": ""
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/you21979/node-ripple-bip32-cmdtool.git"
+  },
+  "author": "Yuki Akiyama",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/you21979/node-ripple-bip32-cmdtool/issues"
+  },
+  "homepage": "https://github.com/you21979/node-ripple-bip32-cmdtool#readme"
+}
