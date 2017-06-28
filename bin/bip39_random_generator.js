@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+'use strict'
 const bip39 = require("bip39");
 const bip32 = require("ripple-bip32");
 
