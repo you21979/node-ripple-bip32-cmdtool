@@ -5,8 +5,9 @@
   "main": "index.js",
   "dependencies": {
     "bip39": "",
-    "ripple-sign-keypairs": "",
-    "ripple-bip32": ""
+    "commander": "^2.10.0",
+    "ripple-bip32": "",
+    "ripple-sign-keypairs": ""
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
