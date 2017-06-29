@@ -6,8 +6,8 @@ const bip32 = require('ripple-bip32');
 program
   .version('0.0.1')
   .option('-k, --xpub <xpubxxxxxx>', 'input xpub')
-  .option('-s, --start <n>', 'start position', parseInt, 0)
-  .option('-c, --count <n>', 'generate count', parseInt, 5)
+  .option('-s, --start <n>', 'start position', (v) => parseInt(v), 0)
+  .option('-c, --count <n>', 'generate count', (v) => parseInt(v), 5)
   .parse(process.argv);
 
 const gen = (xpub, start, count) => {
