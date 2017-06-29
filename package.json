@@ -4,8 +4,10 @@
   "description": "",
   "main": "index.js",
   "dependencies": {
-    "bip39": "",
     "commander": "^2.10.0",
+    "promise-util-task": "",
+    "bip39": "",
+    "ripple-lib": "",
     "ripple-bip32": "",
     "ripple-sign-keypairs": ""
   },
