@@ -11,6 +11,7 @@ program
   .option('-p, --password <xxxxxxxxxxx>', 'input password', "")
   .option('-d, --dest_address <rxxxxxxxxxx>', 'input address', "")
   .option('-a, --amount <1.0>', 'send xrp amount', "0")
+  .option('-f, --fee_amount <0.1>', 'network fee amount', "0.1")
   .parse(process.argv);
 
 const createByMnemonic = (mnemonic, password, base_path, begin, count) => {
@@ -25,8 +26,7 @@ const createByMnemonic = (mnemonic, password, base_path, begin, count) => {
 
 const XRP2Drops = (xrp) => (Math.floor(parseFloat(xrp) * 1e6)).toString()
 
-const createPaymentTx = (src_address, dest_address, amount) => {
-    const fee = "0.1"
+const createPaymentTx = (src_address, dest_address, amount, fee) => {
     const tx = JSON.parse('{"TransactionType":"Payment","Account":"","Destination":"","Amount":"1","Flags":2147483648,"Fee":"1"}')
     tx.Account = src_address
     tx.Destination = dest_address
@@ -44,8 +44,9 @@ const main = (program) => {
     const password = program.password
     const dest_address = program.dest_address
     const amount = program.amount
+    const fee = program.fee
     const data = createByMnemonic(mnemonic, password, base_path)
-    const txJSON = createPaymentTx(data.address, dest_address, amount)
+    const txJSON = createPaymentTx(data.address, dest_address, amount, fee)
     const signedTx = sign(txJSON, data.keypairs)
     console.log(signedTx)
 }
