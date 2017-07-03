@@ -14,7 +14,7 @@ program
   .option('-f, --fee_amount <0.1>', 'network fee amount', "0.1")
   .parse(process.argv);
 
-const createByMnemonic = (mnemonic, password, base_path, begin, count) => {
+const createByMnemonic = (mnemonic, password, base_path) => {
     const seed = bip39.mnemonicToSeed(mnemonic, password)
     const m = bip32.fromSeedBuffer(seed)
     const derived = m.derivePath(base_path)
@@ -44,7 +44,7 @@ const main = (program) => {
     const password = program.password
     const dest_address = program.dest_address
     const amount = program.amount
-    const fee = program.fee
+    const fee = program.fee_amount
     const data = createByMnemonic(mnemonic, password, base_path)
     const txJSON = createPaymentTx(data.address, dest_address, amount, fee)
     const signedTx = sign(txJSON, data.keypairs)
