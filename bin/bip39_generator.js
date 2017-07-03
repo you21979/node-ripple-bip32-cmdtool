@@ -14,14 +14,14 @@ program
 
 const createByXprvNode = (m, base_path, from, count) => {
     const results = []
-    const path = base_path.split("/")
+    const derived = m.derivePath(base_path)
     for(let i = from; i < from + count; ++i){
-        const pathstring = path.concat(0, i.toString()).join("/")
-        const derived = m.derivePath(pathstring)
+        const pathstring = ['m', '0', i.toString()].join("/")
+        const w = m.derivePath(pathstring)
         const obj = {
             childpath : [].concat(0, i.toString()).join("/"),
-            address : derived.getAddress(),
-            keypairs : derived.keyPair.getKeyPairs(),
+            address : w.getAddress(),
+            keypairs : w.keyPair.getKeyPairs(),
         }
         results.push(obj)
     }
